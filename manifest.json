@@ -1,0 +1,35 @@
+{
+    "name": "YouTube 字幕翻译",
+    "version": "1.0",
+    "description": "暂停YouTube视频时，自动翻译当前字幕",
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "permissions": [
+        "https://translate.google.cn/"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.youtube.com/*",
+                "https://*.youtube.com/*"
+            ],
+            "js": [
+                "contentScript.js",
+                "youtube.js"
+            ],
+            "css": [
+                "style.css"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "manifest_version": 2
+}

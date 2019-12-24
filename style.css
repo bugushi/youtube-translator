@@ -1,0 +1,15 @@
+.guyu-translation-wrapper {
+    margin-top: 1vh;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+}
+.guyu-translation-line {
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 3vh;
+}

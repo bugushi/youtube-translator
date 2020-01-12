@@ -1,6 +1,6 @@
 {
     "name": "YouTube 字幕翻译",
-    "version": "1.0",
+    "version": "1.1",
     "description": "暂停YouTube视频时，自动翻译当前字幕",
     "background": {
         "scripts": [

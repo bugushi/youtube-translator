@@ -9,7 +9,8 @@
         "persistent": false
     },
     "permissions": [
-        "https://translate.google.cn/"
+        "https://translate.google.cn/",
+        "webNavigation"
     ],
     "content_scripts": [
         {
@@ -18,7 +19,6 @@
                 "https://*.youtube.com/*"
             ],
             "js": [
-                "contentScript.js",
                 "youtube.js"
             ],
             "css": [

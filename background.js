@@ -1,5 +1,5 @@
 var googleTranslateAPI = 'https://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=en&tl=zh_cn&q=';
-var youtubePattern = /^https?:\/\/www\.youtube\.com\/.*/;
+var youtubePattern = /^https?:\/\/www\.youtube\.com\/watch.*/;
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {

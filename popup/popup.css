@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+.container label {
+    margin-right: 15px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.container label .tip {
+    font-size: 9px;
+    color: #666;
+    margin-top: 3px;
+}
+.container .switch-small {
+    width: 45px;
+}
+.container .switch small{
+    font-size: 9px;
+    color: #666;
+}

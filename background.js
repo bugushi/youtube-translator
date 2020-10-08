@@ -21,3 +21,13 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
         });
     }
 });
+
+// 初始化localstorage
+chrome.storage.sync.get(['isSkipAd'], function (result) {
+    console.log('result.isSkipAd', result.isSkipAd);
+    if (typeof result.isSkipAd == 'undefined') {
+        chrome.storage.sync.set({ 'isSkipAd': true }, () => {
+            console.log('has set result.isSkipAd to true');
+        });
+    }
+});

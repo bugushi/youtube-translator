@@ -14,14 +14,16 @@ let options = {
 
 
 chrome.storage.sync.get(['isSkipAd'], function (result) {
-    console.log('result.isSkipAd', result.isSkipAd);
-    if (typeof result.isSkipAd !== 'undefined') {
-        options.checked = result.isSkipAd;
-
-        chrome.storage.sync.set({ 'isSkipAd': true })
-    }
-    
-    console.log('storage result is ' + JSON.stringify(result));
+    console.log('result.isSkipAd=', result.isSkipAd);
     var el = document.querySelector('.checkbox-switch');
-    var mySwitch = new Switch(el, options);
+
+    if (typeof result.isSkipAd == 'undefined') {
+        chrome.storage.set({ 'isSkipAd': true }, () => {
+            options.checked = true;
+            let mySwitch = new Switch(el, options);
+        })
+    } else {
+        options.checked = result.isSkipAd;
+        let mySwitch = new Switch(el, options);
+    }
 });

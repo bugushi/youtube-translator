@@ -17,6 +17,8 @@ chrome.storage.sync.get(['isSkipAd'], function (result) {
     console.log('result.isSkipAd', result.isSkipAd);
     if (typeof result.isSkipAd !== 'undefined') {
         options.checked = result.isSkipAd;
+
+        chrome.storage.sync.set({ 'isSkipAd': true })
     }
     
     console.log('storage result is ' + JSON.stringify(result));

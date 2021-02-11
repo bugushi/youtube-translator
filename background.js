@@ -1,5 +1,6 @@
 var googleTranslateAPI = 'https://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=en&tl=zh_cn&q=';
 var youtubePattern = /^https?:\/\/www\.youtube\.com\/watch.*/;
+var youtubeHomePattern = /^https?:\/\/www\.youtube\.com\/?/;
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
@@ -18,6 +19,10 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
     if (details.frameId === 0 && youtubePattern.test(details.url)) {
         chrome.tabs.sendMessage(details.tabId, { method: "historyStateUpdated_guyu" }, function (response) {
             console.log("history state updated! tab.url: ", details.url);
+        });
+    } else if (details.frameId === 0 && youtubeHomePattern.test(details.url)) {
+        chrome.tabs.sendMessage(details.tabId, { method: "backToYoutubeHomepage_guyu" }, function (response) {
+            console.log("back to youtube homepage");
         });
     }
 });

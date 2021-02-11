@@ -1,10 +1,10 @@
 (function () {
     let isAdvActive = false;
 
-    // max show 6 times and 50% chance to show
+    // max show 12 times
     let adShowTimes = localStorage.getItem('adShowTimes');
     if (adShowTimes) {
-        if (Number(adShowTimes) < 9 && Math.random() < 0.75) {
+        if (Number(adShowTimes) < 12) {
             showAd(() => {
                 localStorage.setItem('adShowTimes', String(Number(adShowTimes) + 1));
             });

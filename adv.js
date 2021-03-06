@@ -4,7 +4,7 @@
     // max show 12 times
     let adShowTimes = localStorage.getItem('adShowTimes');
     if (adShowTimes) {
-        if (Number(adShowTimes) < 12) {
+        if (Number(adShowTimes) < 9) {
             showAd(() => {
                 localStorage.setItem('adShowTimes', String(Number(adShowTimes) + 1));
             });
@@ -73,7 +73,7 @@
     }
 
     function jumpToBilibili(event) {
-        window.open('https://www.bilibili.com/video/BV1wt4y1z7yD', '_blank');
+        window.open('https://www.bilibili.com/video/BV1WN411R74c', '_blank');
         event.stopPropagation();
     }
 })();

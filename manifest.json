@@ -1,6 +1,6 @@
 {
     "name": "YouTube 字幕翻译",
-    "version": "1.7",
+    "version": "1.8",
     "description": "暂停YouTube视频时，自动翻译当前字幕。还可以自动跳广告噢",
     "background": {
         "scripts": [

@@ -1,4 +1,4 @@
-var googleTranslateAPI = 'https://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=en&tl=zh_cn&q=';
+var googleTranslateAPI = 'https://translate.google.com/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=en&tl=zh_cn&q=';
 var youtubePattern = /^https?:\/\/www\.youtube\.com\/watch.*/;
 var youtubeHomePattern = /^https?:\/\/www\.youtube\.com\/?/;
 

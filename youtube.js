@@ -48,7 +48,7 @@ function translate() {
     let translationWrapper = document.createElement('div');
     translationWrapper.classList.add('guyu-translation-wrapper');
 
-    let playerContainer = document.querySelector('#player-container');
+    let playerContainer = document.querySelector('#ytd-player');
     playerContainer && playerContainer.appendChild(translationWrapper);
 
     let captionTexts = getCaptionLines();

@@ -13,7 +13,7 @@
         "default_icon": "images/icon48.png"
     },
     "permissions": [
-        "https://translate.google.cn/",
+        "https://translate.google.com/",
         "webNavigation",
         "storage"
     ],
@@ -32,8 +32,7 @@
             ],
             "js": [
                 "youtube.js",
-                "skipad.js",
-                "adv.js"
+                "skipad.js"
             ],
             "css": [
                 "style.css"
@@ -46,5 +45,7 @@
         "128": "images/icon128.png"
     },
     "manifest_version": 2,
-    "web_accessible_resources": ["images/front-end-adv.png"]
+    "web_accessible_resources": [
+        "images/front-end-adv.png"
+    ]
 }

@@ -18,3 +18,18 @@ playEvent=>inputoutput: play事件
 
 fastforward->pauseEvent->playEvent
 ```
+
+# 增加字幕流程
+```flow
+pauseEvent=>inputoutput: 暂停事件
+stillHaveLinesToTranslate=>condition: 还有某行字幕未翻译
+addTranslationWrapperToScreen=>operation: 增加字幕容器到页面
+callGoogleTraslationApi=>operation: 调用谷歌翻译API
+addTranslationLineToWrapper=>operation: 将一行翻译加入字幕容器
+playEvent=>inputoutput: 播放事件
+removeTranslationWrapperFromScreen=>end: 移除字幕容器
+
+pauseEvent->addTranslationWrapperToScreen->callGoogleTraslationApi->addTranslationLineToWrapper->stillHaveLinesToTranslate
+stillHaveLinesToTranslate(no,bottom)->playEvent->removeTranslationWrapperFromScreen
+stillHaveLinesToTranslate(yes)->callGoogleTraslationApi
+```

@@ -1,9 +1,9 @@
 (function () {
-    var classList = [
-        'videoAdUiSkipButton', // Old close ad button
+    var btnClassList = [
         'ytp-ad-skip-button ytp-button', // New close ad button
         'ytp-ad-overlay-close-button', // Close overlay button
     ];
+    var ytpSelector = 'ytd-player#ytd-player';
 
     var timeoutId;
     var observedSkipBtn;
@@ -85,7 +85,7 @@
         if (!skipBtnObserver) {
             skipBtnObserver = new MutationObserver(function () {
                 // continue watch ads when ctrl key pressed
-                if(isCtrlKeyPressed) {
+                if (isCtrlKeyPressed) {
                     return;
                 }
 
@@ -115,14 +115,14 @@
      */
     function checkAndClickButtons() {
         // not skip ad if ctrl key is pressed
-        if(isCtrlKeyPressed) {
+        if (isCtrlKeyPressed) {
             return;
         }
 
         chrome.storage.sync.get(['isSkipAd'], function (result) {
             // check user setting
             if (result.isSkipAd) {
-                existingButtons(classList).forEach(button => {
+                existingButtons(btnClassList).forEach(button => {
                     // We want to make sure that we are only pressing the skip button when it
                     // is visible on the screen, so that it is like an actual user is pressing
                     // it. This also gives a user time to not-skip the ad in the future.
@@ -170,9 +170,7 @@
             return false;
         }
 
-        var ytdPlayer = (function (nodeList) {
-            return nodeList && nodeList[0];
-        })(document.getElementsByTagName('ytd-player'));
+        var ytdPlayer = document.querySelector(ytpSelector);
 
         if (!ytdPlayer) {
             return false;

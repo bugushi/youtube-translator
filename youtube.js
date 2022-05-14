@@ -1,7 +1,6 @@
-var isTranslating = false;
 // fast forward will trigger pause an play in sequence. only exact pause action can leed to translation
-var isFastForwad = false;
-var timestamp = 0;
+// timer is the setTimeout id of pause event listener
+var timer = null;
 var videoElement = document.querySelector('video');
 
 videoElement && videoElement.addEventListener('pause', pauseEvent);
@@ -18,27 +17,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function pauseEvent() {
-    // prevent pause event from being fired twice
-    if (isTranslating) { return; }
-    isTranslating = true;
-
     // fast forward will trigger pause an play in sequence. only exact pause action can leed to translation
-    isFastForwad = false;
-    timestamp = new Date().getTime()
-    waitForTerminateInPeriod(translate, 50);
-
-    // prevent pause event from being fired twice
-    setTimeout(() => {
-        isTranslating = false;
-    }, 100);
+    timer = setTimeout(translate, 50);
 }
 
 function playEvent() {
-    let now = new Date().getTime()
-    if (now - timestamp < 20) {
-        isFastForwad = true;
-    }
-
+    clearTimeout(timer);
     // remove the previous translation wrapper
     let previousTranslationWrapper = document.querySelector('.guyu-translation-wrapper')
     previousTranslationWrapper && previousTranslationWrapper.remove();
@@ -86,14 +70,5 @@ function addTranslationToScreen(translation, index) {
         return;
     }
 
-    translationWrapper.prepend(translationLine);
-}
-
-// action will be excute if no TERMINATE signal has been received in PERIOD of time
-function waitForTerminateInPeriod(action, period) {
-    setTimeout(() => {
-        if (!isFastForwad) {
-            action();
-        }
-    }, period);
+    translationWrapper?.prepend(translationLine);
 }

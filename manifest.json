@@ -1,7 +1,7 @@
 {
     "name": "YouTube 字幕翻译",
     "manifest_version": 3,
-    "version": "1.81",
+    "version": "1.9.0",
     "description": "暂停YouTube视频时，自动翻译当前字幕。还可以自动跳广告噢",
     "background": {
         "service_worker": "background.js"

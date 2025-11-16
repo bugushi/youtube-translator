@@ -1,0 +1,11 @@
+{
+  "name": "youtube-translator",
+  "version": "1.92.0",
+  "description": "Modular Chrome extension foundation for translation tools.",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && node scripts/build.mjs"
+  },
+  "devDependencies": {}
+}

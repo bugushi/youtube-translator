@@ -1,0 +1,26 @@
+body {
+    width: 240px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1f1f1f;
+}
+
+.panel {
+    padding: 16px;
+}
+
+.panel h1 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.panel p {
+    margin: 4px 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.panel .note {
+    font-size: 11px;
+    color: #5f6368;
+}

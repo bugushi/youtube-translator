@@ -1,18 +1,17 @@
 {
     "name": "YouTube 字幕翻译",
     "manifest_version": 3,
-    "version": "1.91",
+    "version": "1.91.2",
     "description": "暂停YouTube视频时，自动翻译当前字幕。还可以自动跳广告噢",
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background/index.js"
     },
     "action": {
-        "default_popup": "popup/popup.html",
-        "default_icon": "images/icon48.png"
+        "default_popup": "popup/index.html",
+        "default_icon": "assets/images/icon48.png"
     },
     "permissions": [
-        "webNavigation",
-        "storage"
+        "webNavigation"
     ],
     "host_permissions": [
         "https://translate.google.com/"
@@ -31,17 +30,16 @@
                 "https://*.youtube.com/*"
             ],
             "js": [
-                "youtube.js",
-                "skipad.js"
+                "content/video/subtitle-translator.js"
             ],
             "css": [
-                "style.css"
+                "content/video/overlay.css"
             ]
         }
     ],
     "icons": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "16": "assets/images/icon16.png",
+        "48": "assets/images/icon48.png",
+        "128": "assets/images/icon128.png"
     }
 }
